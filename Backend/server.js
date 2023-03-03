@@ -1,21 +1,24 @@
 const express = require("express");
-require("dotenv").config();
-const connection = require("./config/db");
 const cors = require("cors");
-const userRouter = require("./routes/user.routes");
+const { connection } = require("./config/db");
+const { userRouter } = require("./routes/user.routes");
+// const { authenticate } = require("./middleware/Authentication");
 
 const app = express();
-
 app.use(express.json());
 app.use(cors());
-app.use("/users", userRouter);
+app.get("/", (req, res) => {
+  res.send("Hello trends");
+});
+// app.use(authenticate);
+app.use("/user", userRouter);
 
-app.listen(process.env.port, async () => {
+
+app.listen(process.env.PORT, async () => {
   try {
     await connection;
-    console.log("Connection Established");
+    console.log("Connected to db");
   } catch (error) {
-    console.log(error);
+    console.log({ msg: error.message });
   }
-  console.log(`Your server is started at http://localhost:${process.env.port}`);
 });
