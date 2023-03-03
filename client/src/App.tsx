@@ -1,4 +1,5 @@
-import "./App.css";
+// import "./App.css";
+import Chat from "./Components/chat";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 
@@ -7,7 +8,8 @@ function App() {
     <div className="App">
       <h1>Game App</h1>
       {/* <Signup /> */}
-      <Login/>
+      {/* <Login/> */}
+      <Chat/>
     </div>
   );
 }
