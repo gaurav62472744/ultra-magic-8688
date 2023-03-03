@@ -1,11 +1,13 @@
 import "./App.css";
+import React from "react";
+import AllRoutes from "./mainRoute/allRoutes";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Game App</h1>
+    <div>
+      <AllRoutes />
     </div>
   );
-}
+};
 
 export default App;
