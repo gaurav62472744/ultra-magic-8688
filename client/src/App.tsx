@@ -1,17 +1,14 @@
-// import "./App.css";
-import Chat from "./Components/chat";
-import Login from "./Components/Login";
-import Signup from "./Components/Signup";
 
-function App() {
+import "./App.css";
+import React from "react";
+import AllRoutes from "./mainRoute/allRoutes";
+
+const App = () => {
   return (
-    <div className="App">
-      <h1>Game App</h1>
-      {/* <Signup /> */}
-      {/* <Login/> */}
-      <Chat/>
+    <div>
+      <AllRoutes />
     </div>
   );
-}
+};
 
 export default App;
