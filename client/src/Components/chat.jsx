@@ -27,7 +27,7 @@ function Chat() {
     });
   }, [socket]);
   return (
-    <div className="App">
+    <div style={{ textAlign: "center", marginTop: "100px" }}>
       <input
         placeholder="Room Number..."
         onChange={(event) => {
