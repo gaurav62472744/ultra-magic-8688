@@ -1,0 +1,41 @@
+.gameover {
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://www.wallpaperflare.com/static/378/413/234/space-spaceship-game-digital-wallpaper.jpg) ;
+    background-size:  cover ;
+    background-repeat:  no-repeat ;
+    background-position:  center center ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gameover>img {
+    width:700px;
+}
+.gameover>button {
+    margin-top:100px;
+    width:200px;
+    height:60px;
+    border-radius:100px;
+    border:3px solid white;
+    font-size: 24px;
+    font-weight: bolder;
+    color: white;
+    cursor:pointer;
+    background-image:url(https://c-cl.cdn.smule.com/smule-gg-s-sf-bck1/arr/50/71/234c0eba-8b58-4b1e-b581-b378135f7b44.jpg);
+    background-size:  cover;
+    background-repeat:  no-repeat;
+    background-position:  center center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 700px) {
+    .gameover>img {
+        width:100%;
+    }
+    .gameover>button {
+        width: 150px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
