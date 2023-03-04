@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../App.css"
+import { useNavigate } from "react-router-dom";
 
 interface SignupFormData {
   num: Number;
@@ -10,6 +11,12 @@ const Login: React.FC = () => {
     num: 0,
     pass: "",
   });
+
+  const navigate=useNavigate();
+
+  const handleSignup=()=>{
+    navigate("/signup") 
+  }
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -22,7 +29,7 @@ const Login: React.FC = () => {
     event.preventDefault();
     // Here you can handle the submission of the form data
     try {
-      const res = await fetch("http://localhost:8080/user/login", {
+      const res = await fetch("http://localhost:3001/user/login", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
@@ -30,10 +37,19 @@ const Login: React.FC = () => {
         },
       });
       const main = await res.json();
-      console.log(main);
-    } catch (error) {}
+      localStorage.setItem("token", main.token)
+      localStorage.setItem("ID", main.ID)
 
-    console.log(formData);
+      
+      if(main.msg==="login successfull"){
+        navigate("/room")
+      }
+      console.log(main);
+    } catch (error) {
+      console.log(error)
+    }
+
+    // console.log(formData);
   };
 
   return (
@@ -57,21 +73,17 @@ const Login: React.FC = () => {
           required
           onChange={handleInputChange}
         />
-      </form>
+        <center>
         <button
-          style={{
-            marginTop:"20px",
-            width:"10%",
-            height:"60px",
-            borderRadius:"100px",
-            border:"3px solid white",
-            fontSize: "24px",
-            fontWeight: "bolder",
-            color: "white",
-            cursor:"pointer",
-            backgroundImage:"url(https://c-cl.cdn.smule.com/smule-gg-s-sf-bck1/arr/50/71/234c0eba-8b58-4b1e-b581-b378135f7b44.jpg)"
-          }}
+          className="btn-1"
           type="submit">LOGIN</button>
+        </center>
+        
+      </form>
+        
+        <button onClick={handleSignup}
+          className="btn-1"
+          >SIGN UP</button>
           
     </div>
   );

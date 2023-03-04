@@ -30,7 +30,7 @@ const Signup: React.FC = () => {
     event.preventDefault();
     // Here you can handle the submission of the form data
     try {
-      const res = await fetch("http://localhost:8080/user/register", {
+      const res = await fetch("http://localhost:3001/user/register", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
@@ -39,7 +39,12 @@ const Signup: React.FC = () => {
       });
       const main = await res.json();
       console.log(main);
-    } catch (error) {}
+      if(main.msg==="signup successfull"){
+        navigate("/game")
+      }
+    } catch (error) {
+      console.log(error)
+    }
 
     console.log(formData);
   };
@@ -82,17 +87,7 @@ const Signup: React.FC = () => {
           onChange={handleInputChange}
         />
 
-        {/* <label htmlFor="pass">Enter Password</label> */}
-        <input
-          type="pass"
-          id="pass"
-          name="pass"
-          required
-          placeholder="Enter Password"
-          onChange={handleInputChange}
-        />
-
-        {/* <label htmlFor="email">Enter Email</label> */}
+         {/* <label htmlFor="email">Enter Email</label> */}
         <input
           type="email"
           id="email"
@@ -101,38 +96,32 @@ const Signup: React.FC = () => {
           placeholder="Enter Email"
           onChange={handleInputChange}
         />
-      </form>
-      <button 
-        style={{
-          marginTop:"20px",
-          width:"10%",
-          height:"60px",
-          borderRadius:"100px",
-          border:"3px solid white",
-          fontSize: "24px",
-          fontWeight: "bolder",
-          color: "white",
-          cursor:"pointer",
-          backgroundImage:"url(https://c-cl.cdn.smule.com/smule-gg-s-sf-bck1/arr/50/71/234c0eba-8b58-4b1e-b581-b378135f7b44.jpg)"
-        }}
+
+        {/* <label htmlFor="pass">Enter Password</label> */}
+        <input
+          type="password"
+          id="pass"
+          name="pass"
+          required
+          placeholder="Enter Password"
+          onChange={handleInputChange}
+        />
+
+       
+
+<center>
+<button 
+        className="btn-1"
         type="submit">SIGN UP</button>
+</center>
+        
+
+      </form>
+      
         <button
             onClick={() =>navigate("/login")}
-            style={{
-              marginTop:"40px",
-              width:"20%",
-              height:"60px",
-              borderRadius:"10px",
-              border:"3px solid white",
-              fontSize:"18px",
-              color:"white",
-              cursor:"pointer",
-              position:"absolute",
-              top:"0",
-              right:"10",
-              backgroundImage:"url(https://images.unsplash.com/photo-1595831242832-1c2ba43956cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJlZCUyMGFic3RyYWN0fGVufDB8fDB8fA%3D%3D&w=1000&q=80)"
-            }}
-          >Click to login for existing users</button>
+            className="btn-1"
+          >LOGIN</button>
     </div>
   );
 };

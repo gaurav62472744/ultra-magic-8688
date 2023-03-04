@@ -1,12 +1,18 @@
-const { userModel } = require("../model/user.model");
+const { UserModel } = require("../model/user.model");
 const express = require("express");
 
 const userRouter = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-userRouter.get("/", (req, res) => {
-  res.send("otp sent successfully");
+// Get all regustered users
+userRouter.get("/", async (req, res) => {
+  try {
+    const users = await UserModel.find()
+    res.send(users)
+  } catch (err) {
+    res.send({ "msg": "Something went wrong" })
+  }
 });
 
 // registering the user //
@@ -14,7 +20,7 @@ userRouter.get("/", (req, res) => {
 userRouter.post("/register", async (req, res) => {
   const { num, pass, name, email } = req.body;
 
-  const pre = await userModel.find({ num: num });
+  const pre = await UserModel.find({ num: num });
   if (pre.length > 0) {
     return res.send({ Msg: "user already present" });
   }
@@ -23,11 +29,11 @@ userRouter.post("/register", async (req, res) => {
       if (err) {
         console.log(err);
       }
-      const user = new userModel({ num, name, pass: hash, email, score: 0 });
+      const user = new UserModel({ num, name, pass: hash, email, score: 0 });
       await user.save();
       // res.send("user registered successfully")
 
-      const getUser = await userModel.find({ num: num });
+      const getUser = await UserModel.find({ num: num });
 
       if (getUser.length === 0) {
         return res.send({ msg: "user not found" });
@@ -57,7 +63,7 @@ userRouter.post("/login", async (req, res) => {
   const { num, pass } = req.body;
 
   try {
-    let user = await userModel.find({ num: num });
+    let user = await UserModel.find({ num: num });
 
     if (user.length === 0) {
       return res.send({ msg: "user not found" });
@@ -83,7 +89,7 @@ userRouter.post("/login", async (req, res) => {
 // for get all users whoese sort by score
 userRouter.get("/alluser", async (req, res) => {
   try {
-    const data = userModel.find().sort({ score: -1 });
+    const data = UserModel.find().sort({ score: -1 });
     res.send(data);
   } catch (error) {
     console.log(error);
@@ -92,7 +98,7 @@ userRouter.get("/alluser", async (req, res) => {
 // for updateing score
 userRouter.patch("/update/:id", async (req, res) => {
   try {
-    const data = await userModel.findByIdAndUpdate(req.params.id, req.body);
+    const data = await UserModel.findByIdAndUpdate(req.params.id, req.body);
     res.send("score updated successfully");
   } catch (error) {
     console.log(error);
