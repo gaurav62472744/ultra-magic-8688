@@ -2,7 +2,7 @@
 
 
 
-<p id="description"><br>"Masai Warz" is a space battle 2D game where the players can choose between 3 difficulty levels and can collect points by destroying the extra-terrestrial objects coming towards them using keyboard controls, and when the player's health reaches 0 the game will be over automatically and a player can see their score leaderboard section as well.<br><b>This is a collaborative project of 4 members</b><br><br>- Gaurav Singh <br>- Saurav Kumar <br>- Himanku Gogoi <br>- Ganesh Bahire </p>
+<p id="description"><br>"Masai Warz" is a space battle 2D game where the players can choose between 3 difficulty levels and can collect points by destroying the extra-terrestrial objects coming towards them using keyboard controls, and when the player's health reaches 0 the game will be over automatically and a player can see their score leaderboard section as well.<br><br><b># This is a collaborative project of 4 members</b><br><br>- Gaurav Singh <br>- Saurav Kumar <br>- Himanku Gogoi <br>- Ganesh Bahire </p>
 
 <h2>🌐See Live</h2>
 
