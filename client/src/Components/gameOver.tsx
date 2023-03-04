@@ -10,12 +10,12 @@ const GameOver = () => {
   };
 
   // Send Score data to backend 
-
+  let score=localStorage.getItem("score")
   const sendScore= async ()=>{
     let ID=localStorage.getItem("ID")
-    let score=localStorage.getItem("score")
+   
     try {
-      const res = await fetch(`http://localhost:3001/user/update/${ID}`, {
+      const res = await fetch(`https://glorious-gray-haddock.cyclic.app/user/update/${ID}`, {
         method: "PATCH",
         body: JSON.stringify(score),
         headers: {
@@ -40,6 +40,7 @@ const GameOver = () => {
   return (
     <div className="gameover">
       <img src="https://res.cloudinary.com/djo88dwrg/image/upload/v1677927180/gameover_v3xp7j.png" alt="gameover"/>
+      <h2>Your Score: {score}</h2>
       <button 
        className="btn-1"
         onClick={handleClick}>Play Again</button>

@@ -35,7 +35,7 @@ const Signup: React.FC = () => {
     event.preventDefault();
     // Here you can handle the submission of the form data
     try {
-      const res = await fetch("http://localhost:3001/user/register", {
+      const res = await fetch("https://glorious-gray-haddock.cyclic.app/user/register", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {

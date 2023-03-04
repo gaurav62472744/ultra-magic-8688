@@ -33,7 +33,7 @@ const Login: React.FC = () => {
     event.preventDefault();
     // Here you can handle the submission of the form data
     try {
-      const res = await fetch("http://localhost:3001/user/login", {
+      const res = await fetch("https://glorious-gray-haddock.cyclic.app/user/login", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
