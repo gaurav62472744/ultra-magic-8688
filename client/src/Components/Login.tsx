@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import io, { Socket } from "socket.io-client";
+import "../App.css"
 
 interface SignupFormData {
   num: Number;
@@ -37,27 +37,43 @@ const Login: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="num">num</label>
-      <input
-        type="tel"
-        id="num"
-        name="num"
-        required
-        onChange={handleInputChange}
-      />
-
-      <label htmlFor="pass">pass</label>
-      <input
-        type="pass"
-        id="pass"
-        name="pass"
-        required
-        onChange={handleInputChange}
-      />
-
-      <button type="submit">Login Up</button>
-    </form>
+    <div
+    className="login-div"
+    >
+      <form onSubmit={handleSubmit} style={{display:"flex", flexDirection:"column", gap:"20px", width:"20%"}}>
+        <input
+          type="tel"
+          id="num"
+          name="num"
+          placeholder="Enter Number"
+          required
+          onChange={handleInputChange}
+        />
+        <input
+          type="pass"
+          id="pass"
+          name="pass"
+          placeholder="Enter Password"
+          required
+          onChange={handleInputChange}
+        />
+      </form>
+        <button
+          style={{
+            marginTop:"20px",
+            width:"10%",
+            height:"60px",
+            borderRadius:"100px",
+            border:"3px solid white",
+            fontSize: "24px",
+            fontWeight: "bolder",
+            color: "white",
+            cursor:"pointer",
+            backgroundImage:"url(https://c-cl.cdn.smule.com/smule-gg-s-sf-bck1/arr/50/71/234c0eba-8b58-4b1e-b581-b378135f7b44.jpg)"
+          }}
+          type="submit">LOGIN</button>
+          
+    </div>
   );
 };
 export default Login;

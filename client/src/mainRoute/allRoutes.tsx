@@ -6,6 +6,7 @@ import Signup from "../Components/Signup";
 import Login from "../Components/Login";
 import LeaderBoard from "../Components/LeaderBoard";
 import Chat from "../Components/chat";
+import Homepage from "../Components/Homepage";
 
 const AllRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AllRoutes = () => {
       <Route path="/leaderboard" element={<LeaderBoard />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/home" element={<Homepage />} />
     </Routes>
   );
 };
