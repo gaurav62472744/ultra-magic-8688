@@ -26,7 +26,7 @@ const Canvas: React.FC = () => {
     { x: number; y: number; radius: number }[]
   >([]);
   const [score, setScore] = useState(0);
-  const [health, setHealth] = useState(50);
+  const [health, setHealth] = useState(150);
   const [dis, setDis] = useState(true);
   const audio2 = new Audio(spaceS);
   audio2.loop = true;
@@ -49,7 +49,7 @@ const Canvas: React.FC = () => {
       clearInterval(countdown);
       setDis(false);
       setScore(0);
-      setHealth(50);
+      setHealth(150);
     }
     return () => clearInterval(countdown);
   },[count])
