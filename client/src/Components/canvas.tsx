@@ -26,7 +26,7 @@ const Canvas: React.FC = () => {
     { x: number; y: number; radius: number }[]
   >([]);
   const [score, setScore] = useState(0);
-  const [health, setHealth] = useState(100);
+  const [health, setHealth] = useState(50);
   const [dis, setDis] = useState(true);
   const audio2 = new Audio(spaceS);
   audio2.loop = true;
@@ -38,6 +38,8 @@ const Canvas: React.FC = () => {
     }
   }
 
+  
+
   useEffect(()=>{
     const countdown = setInterval(() => {
       setCount(count => count - 1);
@@ -47,7 +49,7 @@ const Canvas: React.FC = () => {
       clearInterval(countdown);
       setDis(false);
       setScore(0);
-      setHealth(100);
+      setHealth(50);
     }
     return () => clearInterval(countdown);
   },[count])
@@ -95,7 +97,7 @@ const checkCollision = (meteor: {
   );
   if (distance <= meteor.radius + 20) {
     setHealth((health) => health - 10);
-    if (health < 10) {
+    if (health <= 0) {
       //   console.log("gameover");
       navigate("/GameOver");
       window.location.reload();
@@ -139,6 +141,7 @@ const render = () => {
       if (distance <= meteor.radius + 50) {
         setMeteors((meteors) => meteors.filter((m, i) => i !== index));
         setScore((score) => score + 10);
+        localStorage.setItem("score", JSON.stringify(score+10))
       }
     }
   });
@@ -177,6 +180,9 @@ useEffect(() => {
         intervalId = setInterval(() => {
           setFireballPos((pos) => ({ x: shipPos.x + 32.5, y: pos.y - 10 }));
         }, 100);
+        break;
+      case "Escape":
+       navigate("/GameOver")
         break;
       default:
         break;

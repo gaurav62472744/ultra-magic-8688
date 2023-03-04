@@ -74,13 +74,10 @@
     /* border: 2px solid yellow; */
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
   }
-  .home-container>div {
-    /* border: 2px solid red; */
-    /* margin-top: 0 auto; */
-  }
+
   .home-container>div:first-child, .home-container>div:last-child {
     width: 20%;
   }
@@ -94,17 +91,19 @@
 
   .instructions {
     /* margin-top: 50px; */
-    border: 1px solid black;
+    /* border: 1px solid yellow; */
     /* display: none; */
   }
-  .instructions>h1 {
-    /* border: 2px solid yellow; */
+  .instructions > h1 {
+    color: yellow;
   }
+
   .instructions>div {
     display: flex;
     align-items: center;
-    gap:10px;
+    gap:20px;
     justify-content: space-between;
+    font-size: 18px;
     /* border: 2px solid green; */
   }
   .instructions>div>img {
@@ -163,7 +162,7 @@
     }
     .home-container>div:first-child, .home-container>div:last-child {
       width:90%;
-      border:1px solid blue;
+      /* border:1px solid blue; */
     }
     .home-container>div:nth-child(2) {
       order:1

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import music from "../assets/home-music.mp3";
+
 
 interface SignupFormData {
   name: string;
@@ -16,6 +18,9 @@ const Signup: React.FC = () => {
     pass: "",
     email: "",
   });
+
+  const audio = new Audio(music);
+    audio.play();
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -40,7 +45,7 @@ const Signup: React.FC = () => {
       const main = await res.json();
       console.log(main);
       if(main.msg==="signup successfull"){
-        navigate("/game")
+        navigate("/room")
       }
     } catch (error) {
       console.log(error)

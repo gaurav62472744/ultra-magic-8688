@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
+ import music from "../assets/home-music.mp3";
 
 const Room = () => {
     const navigate=useNavigate();
@@ -7,6 +8,8 @@ const Room = () => {
         navigate("/game")
         window.location.reload();
     }
+    const audio = new Audio(music);
+    audio.play();
   return (
     <div style={
         {

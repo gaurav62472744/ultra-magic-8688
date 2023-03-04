@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../App.css"
 import { useNavigate } from "react-router-dom";
+ import music from "../assets/home-music.mp3";
 
 interface SignupFormData {
   num: Number;
@@ -12,6 +13,9 @@ const Login: React.FC = () => {
     pass: "",
   });
 
+ 
+    const audio = new Audio(music);
+    audio.play();
   const navigate=useNavigate();
 
   const handleSignup=()=>{
@@ -66,7 +70,7 @@ const Login: React.FC = () => {
           onChange={handleInputChange}
         />
         <input
-          type="pass"
+          type="password"
           id="pass"
           name="pass"
           placeholder="Enter Password"
