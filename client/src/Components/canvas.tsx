@@ -24,6 +24,7 @@ const Canvas: React.FC = () => {
   >([]);
   const [score, setScore] = useState(0);
   const [health, setHealth] = useState(100);
+
   const audio2 = new Audio(spaceS);
   audio2.loop = true;
   audio2.play();
@@ -96,7 +97,6 @@ const Canvas: React.FC = () => {
         // setFireballPos((pos) => ({ shipPos.x, shipPos.y - 10 }));
 
         drawFireball();
-        audio.play();
       }
       meteors.forEach((meteor, index) => {
         meteor.y += 40;
@@ -111,6 +111,7 @@ const Canvas: React.FC = () => {
           if (distance <= meteor.radius + 30) {
             setMeteors((meteors) => meteors.filter((m, i) => i !== index));
             setScore((score) => score + 10);
+            // audio3.play();
           }
         }
       });
