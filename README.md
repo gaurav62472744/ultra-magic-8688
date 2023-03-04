@@ -14,11 +14,22 @@ Backend Deployed Link : https://glorious-gray-haddock.cyclic.app/
 
 ## Home Page
   
+![warz-home](https://user-images.githubusercontent.com/57268357/222923500-ec7d06ba-aec9-45d9-8c1c-fbbabcc1dc96.PNG)
 
+## How to Play Page
+![warz-howto](https://user-images.githubusercontent.com/57268357/222923524-bb5e756f-6700-4aac-86b1-8f503d396854.PNG)
+
+## Signup Page
+![warz-signup](https://user-images.githubusercontent.com/57268357/222923527-d1e9be28-1007-4510-aacc-31dd553f5795.PNG)
 
 ## Login Page
+![warz-login](https://user-images.githubusercontent.com/57268357/222923534-85a413a3-911a-45ea-a503-e4ba1372b85d.PNG)
 
+## Game Play
+![warz-gameplay](https://user-images.githubusercontent.com/57268357/222923550-93f7edca-ca88-4d41-b0df-ffc682c335ab.PNG)
 
+## Game-Over Page
+![warz-score](https://user-images.githubusercontent.com/57268357/222923574-05f613ca-c1cc-4ebc-8033-46ce27f58de7.PNG)
 
 
 <h2>🛠️ Installation Steps:</h2>
